@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Firebase Final</title>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <h2>Teste Firebase</h2>
+  <button onclick="testar()">TESTAR FIREBASE</button>
+
+  <script>
+    // CONFIGURAÇÃO DO SEU FIREBASE
+    const firebaseConfig = {
+      apiKey: "AIzaSyDgpRxB7gluCbqEnFHIf68xDQVRmAp0dBo",
+      authDomain: "controle-abastecimento-f80ed.firebaseapp.com",
+      projectId: "controle-abastecimento-f80ed",
+      storageBucket: "controle-abastecimento-f80ed.firebasestorage.app",
+      messagingSenderId: "129218813008",
+      appId: "1:129218813008:web:b1f665fbcd9b3a777a0555"
+    };
+
+    // INICIALIZA FIREBASE
+    firebase.initializeApp(firebaseConfig);
+
+    // FIRESTORE
+    const db = firebase.firestore();
+
+    function testar() {
+      alert("Clique detectado");
+
+      db.collection("teste").add({
+        funcionando: true,
+        data: new Date()
+      })
+      .then(() => {
+        alert("🔥 FIREBASE FUNCIONOU");
+      })
+      .catch((erro) => {
+        alert("❌ ERRO NO FIREBASE");
+        console.error(erro);
+      });
+    }
+  </script>
+
+</body>
+</html>
